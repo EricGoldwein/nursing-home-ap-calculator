@@ -16,6 +16,15 @@ DAYS_PER_YEAR = 365
 # Page layout with custom CSS for width control
 st.markdown("""
     <style>
+        /* Disable dark mode */
+        [data-testid="stAppViewContainer"] {
+            background-color: white;
+        }
+        
+        [data-testid="stHeader"] {
+            background-color: transparent;
+        }
+        
         /* Control width of sliders */
         [data-testid="stHorizontalBlock"] > div:first-child {
             max-width: 600px;
@@ -40,10 +49,36 @@ st.markdown("""
             margin-bottom: 2rem !important;
         }
 
-        /* Make title stay on one line */
+        /* Title styling */
         h1 {
-            white-space: nowrap !important;
             font-size: 2.5rem !important;
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                white-space: nowrap !important;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            [data-testid="stImage"] {
+                max-width: 400px !important;
+                width: 100% !important;
+                margin: 2rem auto !important;
+            }
+            
+            [data-testid="column"]:nth-child(2) {
+                padding-left: 0 !important;
+            }
+            
+            .savings-box {
+                max-width: 100% !important;
+            }
         }
 
         /* Enhanced savings box */
@@ -61,6 +96,21 @@ st.markdown("""
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Force light mode text */
+        .stMarkdown, .stSlider, p, h1, h2, h3 {
+            color: rgb(49, 51, 63) !important;
+        }
+        
+        /* Ensure consistent widths on mobile */
+        @media (max-width: 767px) {
+            .stSlider, .savings-box, [data-testid="stImage"] {
+                width: 100% !important;
+                max-width: 400px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -68,7 +118,7 @@ st.markdown("""
 col1, col2 = st.columns([1.5, 1])
 
 with col1:
-    st.title("💊 Dosing Down, DOGE-ing Up")
+    st.title("💊 Dosing Down,\nDOGE-ing Up")
     st.markdown("Calculate potential savings from reducing antipsychotic drug use in nursing homes.")
     
     # Create a container with controlled width
