@@ -84,43 +84,17 @@ st.markdown("""
         }
         
         @media (max-width: 767px) {
-            .custom-title {
-                font-size: 2rem !important;
+            /* Remove top padding on mobile */
+            [data-testid="stAppViewContainer"] {
+                padding-top: 0.5rem !important;
             }
-            .title-line {
-                display: block !important;
-                line-height: 1 !important;
+            
+            /* Adjust block spacing */
+            [data-testid="stVerticalBlock"] {
+                gap: 0 !important;
+                padding-top: 0 !important;
             }
-            .mobile-break {
-                display: block !important;
-            }
-        }
-
-        /* Enhanced savings box */
-        .savings-box {
-            background-color: #f0f7ff;
-            padding: 15px;
-            border-radius: 15px;
-            margin: 10px 0;
-            border: 2px solid #cce3ff;
-            max-width: 600px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Force light mode text */
-        .stMarkdown, .stSlider, p, h1, h2, h3 {
-            color: rgb(49, 51, 63) !important;
-        }
-        
-        /* Container class for better control */
-        .content-container {
-            max-width: 600px;
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Ensure consistent widths on mobile */
-        @media (max-width: 767px) {
+            
             /* Force all main elements to same width */
             [data-testid="stHorizontalBlock"] > div:first-child,
             .stSlider,
@@ -185,8 +159,36 @@ st.markdown("""
                 padding-top: 0.25rem !important;
                 padding-bottom: 0.25rem !important;
             }
+            
+            /* Move title up on mobile */
+            .custom-title {
+                margin-top: -0.5rem !important;
+            }
         }
 
+        /* Enhanced savings box */
+        .savings-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 10px 0;
+            border: 2px solid #cce3ff;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Force light mode text */
+        .stMarkdown, .stSlider, p, h1, h2, h3 {
+            color: rgb(49, 51, 63) !important;
+        }
+        
+        /* Container class for better control */
+        .content-container {
+            max-width: 600px;
+            margin: 0;
+            padding: 0;
+        }
+        
         /* Add spacing before About section */
         [data-testid="stMarkdown"] h3 {
             margin-top: 2rem !important;
