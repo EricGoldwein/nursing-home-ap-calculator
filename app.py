@@ -116,20 +116,46 @@ st.markdown("""
         
         /* Ensure consistent widths on mobile */
         @media (max-width: 767px) {
-            [data-testid="stHorizontalBlock"] > div:first-child {
+            /* Force all main elements to same width */
+            [data-testid="stHorizontalBlock"] > div:first-child,
+            .stSlider,
+            .savings-box,
+            [data-testid="stImage"],
+            .element-container {
+                width: 400px !important;
                 max-width: 400px !important;
-                width: 100% !important;
-            }
-            
-            .stSlider, .savings-box, [data-testid="stImage"] {
-                width: 100% !important;
-                max-width: 400px !important;
+                min-width: 400px !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
+                box-sizing: border-box !important;
             }
             
+            /* Override any column settings */
+            [data-testid="column"] {
+                width: 100% !important;
+                max-width: 400px !important;
+                margin: 0 auto !important;
+            }
+            
+            /* Ensure image fits container */
+            [data-testid="stImage"] img {
+                width: 100% !important;
+                max-width: 400px !important;
+                height: auto !important;
+            }
+            
+            /* Adjust spacing */
             [data-testid="stImage"] {
                 margin-top: 2rem !important;
+            }
+            
+            .savings-box {
+                margin: 0 auto 20px auto !important;
+            }
+            
+            /* Tighten up spacing between elements */
+            .stSlider {
+                margin-top: -1rem !important;
             }
         }
     </style>
