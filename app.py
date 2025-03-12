@@ -4,7 +4,7 @@ import pandas as pd
 # Set page config
 st.set_page_config(
     page_title="Dosing Down, DOGE-ing Up",
-    page_icon="💊",
+    page_icon="📈",
     layout="wide"
 )
 
@@ -52,32 +52,44 @@ st.markdown("""
         /* Title styling */
         h1 {
             font-size: 2.5rem !important;
+            font-weight: bold !important;
+        }
+        
+        /* Custom title styling */
+        .custom-title {
+            font-size: 2.5rem !important;
+            font-weight: bold !important;
+            line-height: 1.2 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            color: rgb(49, 51, 63) !important;
+        }
+        
+        .title-line {
+            display: inline !important;
+        }
+        
+        .mobile-break {
+            display: none !important;
+            line-height: 0.9 !important;
         }
         
         @media (min-width: 768px) {
-            h1 {
+            .custom-title {
                 white-space: nowrap !important;
             }
         }
         
         @media (max-width: 767px) {
-            h1 {
+            .custom-title {
                 font-size: 2rem !important;
-                line-height: 1.2 !important;
             }
-            
-            [data-testid="stImage"] {
-                max-width: 400px !important;
-                width: 100% !important;
-                margin: 2rem auto !important;
+            .title-line {
+                display: block !important;
+                line-height: 1 !important;
             }
-            
-            [data-testid="column"]:nth-child(2) {
-                padding-left: 0 !important;
-            }
-            
-            .savings-box {
-                max-width: 100% !important;
+            .mobile-break {
+                display: block !important;
             }
         }
 
@@ -118,7 +130,13 @@ st.markdown("""
 col1, col2 = st.columns([1.5, 1])
 
 with col1:
-    st.title("💊 Dosing Down,\nDOGE-ing Up")
+    # Custom title with consistent styling
+    st.markdown("""
+        <div class="custom-title">
+            <span class="title-line">Dosing Down,</span>
+            <span class="title-line">DOGE-ing Up</span>
+        </div>
+    """, unsafe_allow_html=True)
     st.markdown("Calculate potential savings from reducing antipsychotic drug use in nursing homes.")
     
     # Create a container with controlled width
