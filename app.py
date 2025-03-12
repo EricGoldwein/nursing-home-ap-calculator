@@ -100,7 +100,7 @@ st.markdown("""
             border-radius: 15px;
             margin: 20px 0;
             border: 2px solid #cce3ff;
-            max-width: 400px;
+            max-width: 600px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease;
         }
@@ -116,11 +116,20 @@ st.markdown("""
         
         /* Ensure consistent widths on mobile */
         @media (max-width: 767px) {
+            [data-testid="stHorizontalBlock"] > div:first-child {
+                max-width: 400px !important;
+                width: 100% !important;
+            }
+            
             .stSlider, .savings-box, [data-testid="stImage"] {
                 width: 100% !important;
                 max-width: 400px !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
+            }
+            
+            [data-testid="stImage"] {
+                margin-top: 2rem !important;
             }
         }
     </style>
