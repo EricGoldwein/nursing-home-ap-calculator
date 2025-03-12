@@ -28,25 +28,27 @@ st.markdown("""
         /* Control width of sliders */
         [data-testid="stHorizontalBlock"] > div:first-child {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
         }
         
         /* Control image size and position */
         [data-testid="stImage"] {
             max-width: 600px !important;
-            margin-left: auto !important;
+            width: 100% !important;
+            margin: 0 !important;
             display: block !important;
-            margin-top: 3rem !important;
+            margin-top: 2rem !important;
         }
         
         /* Adjust column widths and spacing */
         [data-testid="column"]:nth-child(2) {
-            padding-left: 4rem !important;
+            padding-left: 0 !important;
         }
         
         /* Add space between sliders */
         .stSlider {
             margin-bottom: 2rem !important;
+            margin-top: 2rem !important;
         }
 
         /* Title styling */
@@ -103,6 +105,7 @@ st.markdown("""
             max-width: 600px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease;
+            margin-top: 2rem !important;
         }
         .savings-box:hover {
             transform: translateY(-2px);
@@ -114,6 +117,13 @@ st.markdown("""
             color: rgb(49, 51, 63) !important;
         }
         
+        /* Container class for better control */
+        .content-container {
+            max-width: 600px;
+            margin: 0;
+            padding: 0;
+        }
+        
         /* Ensure consistent widths on mobile */
         @media (max-width: 767px) {
             /* Force all main elements to same width */
@@ -121,10 +131,11 @@ st.markdown("""
             .stSlider,
             .savings-box,
             [data-testid="stImage"],
-            .element-container {
-                width: 400px !important;
+            .element-container,
+            .content-container {
+                width: 100% !important;
                 max-width: 400px !important;
-                min-width: 400px !important;
+                min-width: 0 !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
                 box-sizing: border-box !important;
@@ -135,6 +146,7 @@ st.markdown("""
                 width: 100% !important;
                 max-width: 400px !important;
                 margin: 0 auto !important;
+                padding: 0 !important;
             }
             
             /* Ensure image fits container */
@@ -142,20 +154,7 @@ st.markdown("""
                 width: 100% !important;
                 max-width: 400px !important;
                 height: auto !important;
-            }
-            
-            /* Adjust spacing */
-            [data-testid="stImage"] {
-                margin-top: 2rem !important;
-            }
-            
-            .savings-box {
-                margin: 0 auto 20px auto !important;
-            }
-            
-            /* Tighten up spacing between elements */
-            .stSlider {
-                margin-top: -1rem !important;
+                margin: 0 !important;
             }
         }
     </style>
