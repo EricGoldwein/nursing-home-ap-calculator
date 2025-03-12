@@ -37,7 +37,6 @@ st.markdown("""
             width: 100% !important;
             margin: 0 !important;
             display: block !important;
-            margin-top: 1rem !important;
         }
         
         /* Adjust column widths and spacing */
@@ -47,23 +46,23 @@ st.markdown("""
         
         /* Add space between sliders */
         .stSlider {
-            margin-bottom: 1rem !important;
+            margin-bottom: 0.5rem !important;
             margin-top: 0.5rem !important;
         }
 
         /* Title styling */
         h1 {
-            font-size: 2.5rem !important;
+            font-size: 2rem !important;
             font-weight: bold !important;
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 0.25rem !important;
         }
         
         /* Custom title styling */
         .custom-title {
-            font-size: 2.5rem !important;
+            font-size: 2rem !important;
             font-weight: bold !important;
-            line-height: 1.1 !important;
-            margin: 0 0 0.5rem 0 !important;
+            line-height: 1 !important;
+            margin: 0 0 0.25rem 0 !important;
             padding: 0 !important;
             color: rgb(49, 51, 63) !important;
         }
@@ -99,17 +98,12 @@ st.markdown("""
         /* Enhanced savings box */
         .savings-box {
             background-color: #f0f7ff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin: 10px 0;
+            margin: 8px 0;
             border: 2px solid #cce3ff;
             max-width: 600px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-        }
-        .savings-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
         }
         
         /* Force light mode text */
@@ -159,33 +153,71 @@ st.markdown("""
             
             /* Tighter spacing on mobile */
             .stSlider {
-                margin-bottom: 0.75rem !important;
-                margin-top: 0.5rem !important;
+                margin-bottom: 0.5rem !important;
+                margin-top: 0.25rem !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
             }
             
-            /* Adjust savings box padding on mobile */
+            /* Adjust savings box for mobile prominence */
             .savings-box {
-                padding: 15px !important;
-                margin: 8px 0 !important;
+                padding: 12px !important;
+                margin: 4px 0 !important;
+                border-width: 1px !important;
             }
             
             /* Reduce description text size on mobile */
             .stMarkdown p {
+                font-size: 0.85rem !important;
+                margin: 0 0 0.25rem 0 !important;
+                line-height: 1.2 !important;
+            }
+            
+            /* Minimize slider label spacing */
+            .stSlider label {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
                 font-size: 0.9rem !important;
-                margin-bottom: 0.5rem !important;
+            }
+            
+            /* Hide description text initially */
+            [data-testid="stMarkdown"] > div:first-child {
+                display: none !important;
+            }
+            
+            /* Adjust savings box text sizes */
+            .savings-box p:first-child {
+                font-size: 14px !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .savings-box p:nth-child(2) {
+                font-size: 48px !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .savings-box p:last-child {
+                font-size: 16px !important;
+                line-height: 1.2 !important;
             }
         }
 
-        /* Adjust main content spacing */
-        [data-testid="stVerticalBlock"] > div {
-            padding-top: 0.5rem !important;
-            padding-bottom: 0.5rem !important;
+        /* Remove all top padding on mobile */
+        @media (max-width: 767px) {
+            [data-testid="stVerticalBlock"] > div {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            
+            /* Hide everything after the first block on mobile */
+            [data-testid="stHorizontalBlock"] ~ div {
+                display: none !important;
+            }
         }
 
-        /* Hide About section on mobile for initial view */
+        /* Hide About section and divider on mobile */
         @media (max-width: 767px) {
-            [data-testid="stMarkdown"] h3,
-            [data-testid="stMarkdown"] ul {
+            hr, [data-testid="stMarkdown"] h3, [data-testid="stMarkdown"] ul {
                 display: none !important;
             }
         }
