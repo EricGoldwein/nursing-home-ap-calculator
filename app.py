@@ -37,7 +37,7 @@ st.markdown("""
             width: 100% !important;
             margin: 0 !important;
             display: block !important;
-            margin-top: 2rem !important;
+            margin-top: 1rem !important;
         }
         
         /* Adjust column widths and spacing */
@@ -47,22 +47,23 @@ st.markdown("""
         
         /* Add space between sliders */
         .stSlider {
-            margin-bottom: 2rem !important;
-            margin-top: 2rem !important;
+            margin-bottom: 1rem !important;
+            margin-top: 0.5rem !important;
         }
 
         /* Title styling */
         h1 {
             font-size: 2.5rem !important;
             font-weight: bold !important;
+            margin-bottom: 0.5rem !important;
         }
         
         /* Custom title styling */
         .custom-title {
             font-size: 2.5rem !important;
             font-weight: bold !important;
-            line-height: 1.2 !important;
-            margin: 0 !important;
+            line-height: 1.1 !important;
+            margin: 0 0 0.5rem 0 !important;
             padding: 0 !important;
             color: rgb(49, 51, 63) !important;
         }
@@ -98,14 +99,13 @@ st.markdown("""
         /* Enhanced savings box */
         .savings-box {
             background-color: #f0f7ff;
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            margin: 20px 0;
+            margin: 10px 0;
             border: 2px solid #cce3ff;
             max-width: 600px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease;
-            margin-top: 2rem !important;
         }
         .savings-box:hover {
             transform: translateY(-2px);
@@ -155,6 +155,38 @@ st.markdown("""
                 max-width: 400px !important;
                 height: auto !important;
                 margin: 0 !important;
+            }
+            
+            /* Tighter spacing on mobile */
+            .stSlider {
+                margin-bottom: 0.75rem !important;
+                margin-top: 0.5rem !important;
+            }
+            
+            /* Adjust savings box padding on mobile */
+            .savings-box {
+                padding: 15px !important;
+                margin: 8px 0 !important;
+            }
+            
+            /* Reduce description text size on mobile */
+            .stMarkdown p {
+                font-size: 0.9rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+        }
+
+        /* Adjust main content spacing */
+        [data-testid="stVerticalBlock"] > div {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        /* Hide About section on mobile for initial view */
+        @media (max-width: 767px) {
+            [data-testid="stMarkdown"] h3,
+            [data-testid="stMarkdown"] ul {
+                display: none !important;
             }
         }
     </style>
