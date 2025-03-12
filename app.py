@@ -111,7 +111,7 @@ with col1:
         """, unsafe_allow_html=True)
 
 with col2:
-    st.image("assets/ap-drug-cuckoo.jpg", use_container_width=True)
+    st.image("assets/ap-drug-cuckoo.jpg", width=600)
 
 # Additional context
 st.markdown("---")
